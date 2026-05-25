@@ -1,0 +1,94 @@
+/* =========================================
+   تصميم وحركة الشاشة الافتتاحية (Splash Screen)
+   ========================================= */
+
+#custom-splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #ffffff; /* خلفية بيضاء نقية */
+    z-index: 999999999; /* لضمان تغطية كل الموقع */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
+    direction: rtl;
+}
+
+/* حركة الستارة (الارتفاع للأعلى عند الاختفاء) */
+#custom-splash-screen.hide-splash {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.splash-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* أيقونة الوردة وحركتها */
+.splash-icon {
+    width: 55px;
+    height: 55px;
+    stroke: var(--theme-color, #23B694); /* تأخذ لون متجرك الأساسي */
+    animation: float-pulse 2s infinite ease-in-out;
+    margin-bottom: 15px;
+}
+
+/* عنوان الموقع */
+.splash-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #222;
+    margin: 0 0 5px 0;
+    letter-spacing: 1px;
+}
+
+/* الشعار اللفظي */
+.splash-subtitle {
+    font-size: 13px;
+    color: #666;
+    margin: 0 0 25px 0;
+    font-weight: 500;
+}
+
+/* شريط التحميل بخلفية رمادية فاتحة */
+.splash-loader {
+    width: 100px;
+    height: 3px;
+    background: #f0f0f0;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* الخط المتحرك داخل شريط التحميل */
+.splash-loader::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 40%;
+    background: var(--theme-color, #23B694); /* يأخذ لون متجرك الأساسي */
+    border-radius: 3px;
+    animation: loading-bar 1.5s infinite ease-in-out;
+}
+
+/* === إعدادات الأنيميشن (الحركة) === */
+
+/* حركة الطفو والنبض للأيقونة */
+@keyframes float-pulse {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-8px) scale(1.05); }
+}
+
+/* حركة شريط التحميل يميناً ويساراً */
+@keyframes loading-bar {
+    0% { left: -40%; }
+    100% { left: 100%; }
+}
