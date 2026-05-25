@@ -1,0 +1,15 @@
+document.addEventListener("DOMContentLoaded", function() {
+    // هذا الكود يعمل على الجوال فقط لنقل صندوق البحث
+    if(window.innerWidth <= 800) {
+        // البحث عن حاوية الهيدر وصندوق البحث
+        const headerInner = document.querySelector('.s-header__inner') || document.querySelector('.header-inner');
+        const searchBox = document.querySelector('salla-search') || document.querySelector('.s-header-search-container');
+        
+        if(headerInner && searchBox) {
+            // إضافة كلاس جديد للتحكم بتصميمه
+            searchBox.classList.add('custom-middle-search');
+            // نقل صندوق البحث ليكون داخل الهيدر الأبيض الرئيسي
+            headerInner.appendChild(searchBox);
+        }
+    }
+});
