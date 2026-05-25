@@ -1,0 +1,48 @@
+document.addEventListener("DOMContentLoaded", function() {
+    // التأكد من أن الشاشة تظهر مرة واحدة فقط للعميل عند أول زيارة للمتجر لتجنب الإزعاج
+    if (!sessionStorage.getItem('haflatiSplashShown')) {
+        
+        // إنشاء الشاشة الافتتاحية
+        const splash = document.createElement('div');
+        splash.id = 'custom-splash-screen';
+        
+        // محتوى الشاشة (أيقونة، اسم المتجر، الشعار اللفظي، وشريط التحميل)
+        splash.innerHTML = `
+            <div class="splash-content">
+                <svg class="splash-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22c4.97-1.66 8-6.16 8-11A8 8 0 0 0 4 11c0 4.84 3.03 9.34 8 11z"></path>
+                    <path d="M12 22V12"></path>
+                    <path d="M12 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path>
+                    <path d="M12 12a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" transform="rotate(45 12 12)"></path>
+                    <path d="M12 12a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" transform="rotate(-45 12 12)"></path>
+                </svg>
+                <h1 class="splash-title">حفلتي</h1>
+                <p class="splash-subtitle">اختار الشعور... وحفلتي تضبط الباقي</p>
+                <div class="splash-loader"></div>
+            </div>
+        `;
+        document.body.appendChild(splash);
+
+        // وظيفة إخفاء الشاشة بعد اكتمال تحميل الموقع
+        const removeSplash = () => {
+            splash.classList.add('hide-splash');
+            // إزالة العنصر من الأكواد بعد انتهاء حركة الإخفاء (بعد 0.8 ثانية)
+            setTimeout(() => splash.remove(), 800); 
+        };
+
+        // عند اكتمال تحميل الموقع بالكامل
+        window.addEventListener('load', function() {
+            setTimeout(removeSplash, 600); // تأخير بسيط جداً للاستمتاع بالحركة
+        });
+
+        // خطة بديلة: إذا تأخر الموقع في التحميل، تخفى الشاشة تلقائياً بعد 3.5 ثوانٍ
+        setTimeout(() => {
+            if(document.getElementById('custom-splash-screen')) {
+                removeSplash();
+            }
+        }, 3500);
+
+        // تسجيل أن العميل شاهد الشاشة
+        sessionStorage.setItem('haflatiSplashShown', 'true');
+    }
+});
