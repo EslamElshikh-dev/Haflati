@@ -1,0 +1,58 @@
+/* =========================================
+   توسيط محتوى الفوتر (أسفل الموقع) بالكامل
+   ========================================= */
+
+/* توسيط النصوص والعناوين الرئيسية */
+footer, 
+.store-footer, 
+.footer-widget,
+.footer-widget p,
+.footer-widget h3,
+.footer-widget h4 {
+    text-align: center !important;
+}
+
+/* توسيط العناصر المزدوجة (مثل السجل التجاري، الإيميل مع الأيقونة) */
+.store-footer .flex, 
+.store-footer .flex-row,
+.store-footer .contact-info,
+.footer-widget > div {
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+}
+
+/* ترتيب وتوسيط قائمة "روابط مهمة" */
+.store-footer ul {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+}
+
+.store-footer ul li {
+    text-align: center !important;
+    justify-content: center !important;
+    width: 100%;
+}
+
+.store-footer ul li a {
+    justify-content: center !important;
+}
+
+/* توسيط أيقونات التواصل الاجتماعي (مثل تيك توك) */
+.store-footer .social-links,
+.store-footer [class*="social"] {
+    justify-content: center !important;
+    margin: 15px auto !important;
+    width: 100%;
+    display: flex !important;
+}
+
+/* ضبط المسافة بين الأيقونة والنص (في السجل والإيميل) ليكون الشكل مرتباً */
+.store-footer .flex > *, 
+.store-footer .flex-row > * {
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+}
