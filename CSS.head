@@ -1,0 +1,81 @@
+/* =========================================
+   تصميم الرأس (الهيدر) الاحترافي الطافي للموبايل
+   ========================================= */
+@media (max-width: 800px) {
+    /* إخفاء الخلفية الرمادية الداكنة القديمة التي كانت خلف البحث */
+    .store-header, header.s-header {
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
+
+    /* تصميم الرأس ليكون كبسولة طافية بحواف نصف دائرية */
+    .s-header__inner {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(15px) !important;
+        -webkit-backdrop-filter: blur(15px) !important;
+        border-radius: 40px !important; /* حواف نصف دائرية من اليمين واليسار */
+        margin: 12px 12px 5px 12px !important; /* إبعاد الرأس عن الشاشة ليكون طافياً */
+        padding: 5px 12px !important;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08) !important; /* ظل إبداعي خفيف */
+        border: 1px solid rgba(255, 255, 255, 0.6) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        flex-wrap: nowrap !important;
+    }
+
+    /* ترتيب العناصر: القائمة والشعار يمين (1)، البحث في النص (2)، الأيقونات يسار (3) */
+    .s-header__right, .header-right { 
+        order: 1 !important; 
+        display: flex; 
+        align-items: center; 
+        gap: 5px; /* مسافة بين الشعار والقائمة */
+    }
+    
+    .custom-middle-search { 
+        order: 2 !important; 
+        flex-grow: 1 !important; 
+        margin: 0 8px !important; 
+        width: auto !important;
+    }
+    
+    .s-header__left, .header-left { 
+        order: 3 !important; 
+        display: flex; 
+        align-items: center; 
+    }
+
+    /* تصغير الشعار قليلاً ليتناسب مع المساحة الجديدة */
+    .s-header__logo img {
+        max-height: 38px !important;
+    }
+
+    /* تجميل وتنسيق صندوق البحث في المنتصف */
+    .custom-middle-search form,
+    .custom-middle-search input,
+    .custom-middle-search .search-container {
+        height: 38px !important;
+        border-radius: 30px !important; /* حواف دائرية للبحث */
+        background-color: #f4f6f8 !important; /* لون رمادي فاتح جداً */
+        border: 1px solid #eee !important;
+        transition: all 0.3s ease;
+        padding-right: 15px !important;
+        font-size: 12px !important;
+    }
+
+    /* تأثير جذاب عند الضغط على صندوق البحث */
+    .custom-middle-search form:focus-within,
+    .custom-middle-search input:focus {
+        background-color: #ffffff !important;
+        border-color: var(--theme-color, #23B694) !important;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    /* إخفاء خلفية أيقونة البحث لتكون ناعمة ومدمجة */
+    .custom-middle-search button {
+        background: transparent !important;
+        color: #777 !important;
+        border: none !important;
+    }
+}
