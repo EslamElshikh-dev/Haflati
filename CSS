@@ -1,0 +1,94 @@
+/* تنسيقات الشريط السفلي (للموبايل فقط) */
+@media screen and (max-width: 800px) {
+    /* إضافة مساحة أسفل الموقع لكي لا يغطي الشريط على المحتوى */
+    body {
+        padding-bottom: 90px !important; 
+    }
+
+    /* إخفاء شريط سلة الافتراضي لثيم رائد */
+    salla-bottom-menu, .salla-bottom-menu, .footer-menu {
+        display: none !important;
+    }
+
+    /* الحاوية الرئيسية للشريط (تصميم الزجاج الطافي) */
+    #haflaty-mobile-nav {
+        position: fixed;
+        bottom: 20px; /* الارتفاع عن أسفل الشاشة */
+        left: 5%;
+        width: 90%;
+        background: rgba(255, 255, 255, 0.85); /* خلفية بيضاء شفافة */
+        backdrop-filter: blur(15px); /* تأثير الضباب الاحترافي */
+        -webkit-backdrop-filter: blur(15px);
+        border: 1px solid rgba(0, 0, 0, 0.08); /* إطار دائري نحيف وجذاب */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 15px 8px 15px;
+        border-radius: 40px; /* حواف دائرية كبسولة */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* ظل خفيف وناعم */
+        z-index: 9999999;
+        direction: rtl;
+    }
+
+    /* تصميم الروابط الداخلية */
+    .h-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none !important;
+        color: #888; /* لون رمادي هادئ للأيقونات العادية */
+        flex: 1;
+        position: relative;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* حاوية الأيقونة للحركة */
+    .icon-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* الأيقونات SVG */
+    .h-nav-item svg {
+        width: 24px;
+        height: 24px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* النصوص */
+    .h-nav-item span {
+        font-size: 11px;
+        font-weight: 600;
+        margin-top: 4px;
+        font-family: inherit;
+        transition: all 0.3s ease;
+    }
+
+    /* تأثيرات الحركة عند الضغط (Hover / Active) */
+    .h-nav-item:active .icon-wrapper,
+    .h-nav-item.active .icon-wrapper {
+        transform: translateY(-5px); /* رفع الأيقونة للأعلى بخفة */
+    }
+
+    .h-nav-item:active svg,
+    .h-nav-item.active svg {
+        stroke: var(--theme-color, #23B694) !important; /* يأخذ لون متجرك الأساسي */
+        transform: scale(1.1); /* تكبير الأيقونة قليلاً */
+    }
+
+    .h-nav-item:active span,
+    .h-nav-item.active span {
+        color: var(--theme-color, #23B694); /* تلوين النص بلون المتجر */
+        transform: translateY(-2px);
+    }
+}
+
+/* إخفاء الشريط في الكمبيوتر والآيباد الكبير */
+@media screen and (min-width: 801px) {
+    #haflaty-mobile-nav {
+        display: none !important;
+    }
+}
